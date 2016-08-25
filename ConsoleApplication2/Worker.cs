@@ -13,8 +13,16 @@ namespace ConsoleApplication2
 {
     class Worker
     {
+        //NM - At a high level, the primary steps should be broken out into their own methods, for instance
+        // LoadConfiguration();
+        // ProcessTaxDocument();
+        // WriteToAzure();
+        // WriteToDatabase();
+        //
+        // That way people can understand what is going on at a high level without diving deep into the code
         public Worker()
         {
+            // NM - Modify this to read these values from a configuration file.  Google 'how to use appsettings'
             CloudStorageAccount csa = CloudStorageAccount.Parse(
                 "DefaultEndpointsProtocol=https;AccountName=cminton;AccountKey=9/z9oCB6lMWHXjxBFEmxB79DUVx0bHF91iHMMjvpX1XXXBMwiJ5+ADpnAQhEhJgtBu8uw9qOtRAq/w2uQT723A==");
             CloudBlobClient blobclient = csa.CreateCloudBlobClient();
@@ -44,6 +52,9 @@ namespace ConsoleApplication2
             }
         }
 
+        // NM - Refactor this into a Repository class (google 'repository pattern'), which uses LINQ and Entity Framework.
+        // If you need help this, let me know
+        
         // requires an open connection
         void UploadTaxDocument(SQL.SqlConnection connection, TaxDocument doc)
         {
