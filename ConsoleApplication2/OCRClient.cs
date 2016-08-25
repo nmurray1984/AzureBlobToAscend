@@ -10,6 +10,8 @@ namespace ConsoleApplication2
     {
         public TaxDocument ProcessTaxDocument(TaxDocumentScan document)
         {
+            // NM - you may want to rename this variable to something more readable.  Typing is cheap whereas understanding
+            // a piece of code is expensive.  Something like 'taxDocument'.
             TaxDocument tdout = new TaxDocument();
             tdout.ImportantTaxNumber = 42;
             tdout.PropertyName = "Six Flags over Atlanta";
